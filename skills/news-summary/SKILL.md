@@ -17,13 +17,29 @@ Primary actions for retrieval:
 - `snapshot` to capture page content for parsing/summarization
 - `get_text` for targeted extraction when a selector is known
 
-## RSS Feeds and websites
+Install:
 
+```bash
+pip install feedparser python-dateutil
+```
+
+### Aggregators and websites
 Google News (topic feed):
 https://news.google.com/rss/search?q=world&hl=en-US&gl=US&ceid=US:en
 
 Google news (technology):
 https://news.google.com/rss/search?q=technology&hl=en-US&gl=US&ceid=US:en
+
+Ground News:
+https://ground.news/
+
+Reuters World:
+https://www.reuters.com/
+
+AP Top News:
+https://apnews.com/tag/apf-topnews
+
+## RSS Feeds and websites
 
 NPR (US perspective):
 https://feeds.npr.org/1001/rss.xml
@@ -40,15 +56,6 @@ https://feeds.bbci.co.uk/news/business/rss.xml
 BBC Technology:
 https://feeds.bbci.co.uk/news/technology/rss.xml
 
-Reuters World:
-https://www.reuters.com/
-
-AP Top News:
-https://apnews.com/tag/apf-topnews
-
-Ground News:
-https://ground.news/
-
 ## Retrieve A Webpage With Browser Native Tool
 
 Use the tool with an `open` action to load a page:
@@ -56,7 +63,7 @@ Use the tool with an `open` action to load a page:
 ```json
 {
   "action": "open",
-  "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
+  "url": "https://apnews.com/tag/apf-topnews"
 }
 ```
 
@@ -84,7 +91,7 @@ Use the returned content to extract headlines and descriptions before summarizin
 ## Workflow
 
 ### Text summary
-1. Open Google and BBC world URLs with browser native `open`
+1. Open websites with browser native `open`
 2. Optionally supplement with Reuters, NPR, AP News, and other sites
 3. Capture page content with `snapshot` or `get_text`
 4. Summarize key stories
@@ -110,6 +117,11 @@ Use the returned content to extract headlines and descriptions before summarizin
 
 - Keep summaries concise (5-8 top stories)
 - Prioritize breaking news and major events
-- For voice: ~2 minutes max
-- Balance perspectives (Western + Global South)
-- Cite source if asked
+- Balance perspectives (Western + Global North)
+- Links are okay but only only 1 or 2
+
+## Troubleshooting
+- Empty results: some feeds may be unavailable; retry and rotate sources.
+- Too many duplicates: increase similarity threshold (e.g., 0.35 -> 0.45).
+- Under-grouping: decrease threshold (e.g., 0.35 -> 0.28).
+- Rate limiting: fetch feeds sequentially with small delays.
