@@ -1,5 +1,8 @@
 ---
 name: weather-data
+version: 1.0.0
+author: ZeroClaw
+tags: [weather, forecast, open-meteo, wttr, climate]
 description: "Get current weather, and forecasts using free Open-Meteo and wttr.in APIs. Use when fetching worldwide weather for a city. For US-specific weather, consider using the weather tool instead."
 ---
 
