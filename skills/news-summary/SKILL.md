@@ -15,16 +15,9 @@ Browse and summarize news from trusted international sources via RSS feeds.
 ## Required Tools
 Use the Browser native tool (implemented in `browser`) to open web pages and RSS feeds. These sites may be blocked by CORS when accessed via `http_request`, so the browser tool is recommended for reliable access.
 
-Primary actions for retrieval:
-- `open` to navigate to a URL
-- `snapshot` to capture page content for parsing/summarization
-- `get_text` for targeted extraction when a selector is known
-
-Install:
-
-```bash
-pip install feedparser python-dateutil
-```
+### Web search news tool
+You can now get news via `web_search_tool` using searxng search.
+For example use query="world" and categories="news"
 
 ### Aggregators and websites
 Google News (topic feed):
@@ -58,38 +51,6 @@ https://feeds.bbci.co.uk/news/business/rss.xml
 
 BBC Technology:
 https://feeds.bbci.co.uk/news/technology/rss.xml
-
-## Retrieve A Webpage With Browser Native Tool
-
-Use the tool with an `open` action to load a page:
-
-```json
-{
-  "action": "open",
-  "url": "https://apnews.com/tag/apf-topnews"
-}
-```
-
-Then capture readable content with `snapshot`:
-
-```json
-{
-  "action": "snapshot",
-  "interactive_only": false,
-  "compact": true
-}
-```
-
-If you need targeted text from HTML pages, use `get_text` with a selector:
-
-```json
-{
-  "action": "get_text",
-  "selector": "main"
-}
-```
-
-Use the returned content to extract headlines and descriptions before summarizing.
 
 ## Workflow
 
@@ -128,3 +89,5 @@ Use the returned content to extract headlines and descriptions before summarizin
 - Too many duplicates: increase similarity threshold (e.g., 0.35 -> 0.45).
 - Under-grouping: decrease threshold (e.g., 0.35 -> 0.28).
 - Rate limiting: fetch feeds sequentially with small delays.
+- If site consistently fails to load, update the `news-summary` skill to remove it.
+- If a better news source is found, add it to the skill with instructions on how to use it.
