@@ -1,7 +1,7 @@
 ---
 name: news-summary
 version: 1.0.0
-author: ZeroClaw
+author: myagentzero
 tags: [news, briefing, rss, current-events, world]
 description: This skill should be used when the user asks for news updates, daily briefings, or what's happening in the world. Browse current events from trusted international RSS feeds and websites.
 ---
