@@ -1,23 +1,23 @@
 ---
 name: news-summary
-version: 1.0.0
+version: 1.1.0
 author: myagentzero
 tags: [news, briefing, rss, current-events, world]
-description: This skill should be used when the user asks for news updates, daily briefings, or what's happening in the world. Browse current events from trusted international RSS feeds and websites.
+description: Use when asked for news updates, daily briefings, current events, or what's happening in the world. 
 ---
 
 # News Summary
 
 ## Overview
 
-Browse and summarize news from trusted international sources via RSS feeds.
+Browse and summarize from international news sources.
 
 ## Required Tools
-Use the Browser native tool (implemented in `browser`) to open web pages and RSS feeds. These sites may be blocked by CORS when accessed via `http_request`, so the browser tool is recommended for reliable access.
+Use the Browser native tool `browser` to open web pages. These sites may be blocked by CORS when accessed via `http_request`, so the browser tool is recommended for reliable access.
 
 ### Web search news tool
-You can now get news via `web_search_tool` using searxng search.
-For example use query="world" and categories="news"
+You can now get news via `web_search_tool` using searxng search with the news category.
+For example use query=world & categories=news
 
 ### Aggregators and websites
 Google News (topic feed):
@@ -63,7 +63,6 @@ https://feeds.bbci.co.uk/news/technology/rss.xml
 
 ## Example Output Format
 
-```
 📰 News Summary [date]
 
 🌍 HEADLINES
@@ -75,7 +74,7 @@ https://feeds.bbci.co.uk/news/technology/rss.xml
 
 💻 TECH
 - [headline 1]
-```
+
 
 ## Best Practices
 
@@ -90,4 +89,4 @@ https://feeds.bbci.co.uk/news/technology/rss.xml
 - Under-grouping: decrease threshold (e.g., 0.35 -> 0.28).
 - Rate limiting: fetch feeds sequentially with small delays.
 - If site consistently fails to load, update the `news-summary` skill to remove it.
-- If a better news source is found, add it to the skill with instructions on how to use it.
+- If a better news source is discovered, add it to the skill with instructions on how to use it.
