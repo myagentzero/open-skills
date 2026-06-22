@@ -1,4 +1,4 @@
-# ZeroClaw Skills
+# AgentZero Skills
 
 ## Teach your AI Agent Must-Have Skills — Save 98% of API Calls
 

@@ -42,7 +42,7 @@ Convert documents (PDF, Word, PowerPoint, Excel, HTML, images, audio, etc.) to M
 ### 2. Ensure markitdown is installed
 Use the shell tool:
 ```bash
-/var/lib/zeroclaw/.zeroclaw/workspace/markitdown-venv/bin/markitdown -v
+markitdown -v
 ```
 
 ### 3. Validate the file exists
