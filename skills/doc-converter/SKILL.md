@@ -61,7 +61,7 @@ markitdown "/path/to/input/file.pdf" > "/path/to/output/file.md"
 ```
 
 **Output path convention:** Same directory as input, same filename, `.md` extension.
-Example: `/workspace/uploads/report.pdf` → `/workspace/uploads/report.md`
+Example: `/workspace/slack_files/report.pdf` → `/workspace/slack_files/report.md`
 
 ### 4. Handle errors
 - `command not found`: Run `pip3 install markitdown --break-system-packages`
@@ -76,23 +76,23 @@ Example: `/workspace/uploads/report.pdf` → `/workspace/uploads/report.md`
 
 ## Examples
 
-**User:** "Convert this PDF to markdown [Document: report.pdf] /workspace/uploads/report.pdf"
+**User:** "Convert this PDF to markdown [Document: report.pdf] /workspace/slack_files/report.pdf"
 ```bash
-markitdown "/workspace/uploads/report.pdf" > "/workspace/uploads/report.md"
+markitdown "/workspace/slack_files/report.pdf" > "/workspace/slack_files/report.md"
 ```
-→ "Converted to `/workspace/uploads/report.md` — 12 pages, 3,400 words."
+→ "Converted to `/workspace/slack_files/report.md` — 12 pages, 3,400 words."
 
-**User:** "Read this PowerPoint [Document: deck.pptx] /workspace/uploads/deck.pptx"
+**User:** "Read this PowerPoint [Document: deck.pptx] /workspace/slack_files/deck.pptx"
 ```bash
-markitdown "/workspace/uploads/deck.pptx"
+markitdown "/workspace/slack_files/deck.pptx"
 ```
 → Display inline Markdown content
 
-**User:** "Extract text from this Excel file [Document: data.xlsx] /workspace/uploads/data.xlsx"
+**User:** "Extract text from this Excel file [Document: data.xlsx] /workspace/slack_files/data.xlsx"
 ```bash
-markitdown "/workspace/uploads/data.xlsx" > "/workspace/uploads/data.md"
+markitdown "/workspace/slack_files/data.xlsx" > "/workspace/slack_files/data.md"
 ```
-→ "Converted to `/workspace/uploads/data.md` — 3 sheets."
+→ "Converted to `/workspace/slack_files/data.md` — 3 sheets."
 
 ## Notes
 - markitdown preserves structure: headings, tables, lists, code blocks
@@ -100,5 +100,5 @@ markitdown "/workspace/uploads/data.xlsx" > "/workspace/uploads/data.md"
 - For audio transcription: `pip3 install 'markitdown[audio]' --break-system-packages`
 - Large files (>50MB) may be slow — warn the user
 - Always prefer saving to file over dumping raw output for docs >50 lines
-- Clean up files if needed after conversion to avoid cluttering workspace with file_remove tool.
+- Files in /workspace/slack_files will automatically clean up after 30 days
 
